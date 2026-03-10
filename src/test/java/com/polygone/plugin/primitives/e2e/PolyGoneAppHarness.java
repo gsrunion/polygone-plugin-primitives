@@ -61,7 +61,6 @@ final class PolyGoneAppHarness implements AutoCloseable {
         command.add("--polygone.test-hook.port=" + port);
         command.add("--polygone.plugins.directory=" + userHome.resolve(".polygone/plugins").toAbsolutePath());
         command.add("--polygone.plugins.builtin-directory=nonexistent");
-        command.add("--polygone.features.plugins-enabled=true");
 
         ProcessBuilder processBuilder = new ProcessBuilder(command);
         processBuilder.directory(projectRoot.toFile());
