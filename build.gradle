@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
 }
 
 group = 'com.polygone'
@@ -10,6 +11,12 @@ java {
     targetCompatibility = JavaVersion.VERSION_21
 }
 
+javafx {
+    version = '21.0.1'
+    modules = ['javafx.controls', 'javafx.graphics']
+    configuration = 'compileOnly'
+}
+
 repositories {
     mavenCentral()
     mavenLocal()
@@ -17,15 +24,17 @@ repositories {
 
 dependencies {
     compileOnly 'com.polygone:polygone-api:0.1.0-SNAPSHOT'
-    compileOnly 'org.openjfx:javafx-graphics:21.0.2'
+    compileOnly 'org.slf4j:slf4j-api:2.0.9'
 
     testImplementation 'com.polygone:polygone-app:0.1.0-SNAPSHOT'
     testImplementation 'com.polygone:polygone-api:0.1.0-SNAPSHOT'
+    testImplementation 'org.openjfx:javafx-controls:21.0.1'
+    testImplementation 'org.openjfx:javafx-graphics:21.0.1'
+    testImplementation 'org.openjfx:javafx-base:21.0.1'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
     testImplementation 'com.fasterxml.jackson.core:jackson-databind:2.16.1'
     testImplementation 'org.springframework.boot:spring-boot-starter:3.2.5'
     testImplementation 'org.springframework.boot:spring-boot-starter-test:3.2.5'
-    testImplementation 'org.openjfx:javafx-graphics:21.0.2'
 }
 
 test {
